@@ -35,8 +35,7 @@ module.exports = class Stack {
 
 }
 
-const stack = new Stack ()
-
+// const stack = new Stack ()
 // stack.push(1)
 // stack.push(2)
 // stack.push(3)
@@ -45,7 +44,7 @@ const stack = new Stack ()
 // console.log(stack.length())
 // console.log(stack.peek())
 
-// 实际的例子
+// e.g
 
 // 回文
 
