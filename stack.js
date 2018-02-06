@@ -1,39 +1,41 @@
 module.exports = class Stack {
 
   constructor() {
-    this.data = []
-    this.top = 0
+    this.data = [];
+    this.top = 0;
 
   }
 
   // 元素进栈的
   push(element) {
-    this.data[this.top++] = element
+    this.data[this.top++] = element;
   }
 
   // 获得栈顶元素
 
   peek(element) {
-    return this.data[this.top - 1]
+    if (!this.top) throw new Error('栈里面没有元素');
+    return this.data[this.top - 1];
   }
 
   //弹出栈顶元素
   pop() {
-    return this.data[--this.top]
+    if (!this.top) throw new Error('栈里面没有元素');
+    return this.data[--this.top];
   }
 
   // 清空栈
   clear() {
-    this.top = 0
+    this.top = 0;
   }
 
   // 获取栈的深度
 
   length() {
-    return this.top
+    return this.top;
   }
 
-}
+};
 
 // const stack = new Stack ()
 // stack.push(1)
@@ -53,15 +55,15 @@ module.exports = class Stack {
  * @param word
  */
 function isPalindrome(word) {
-  const s = new Stack ()
-  const length = word.length
+  const s = new Stack();
+  const length = word.length;
   for (let i = 0; i < length; i++) {
-    s.push (word[i])
+    s.push(word[i]);
   }
-  let rword = ''
-  while (s.length () > 0) {
-    rword += s.pop ()
+  let rword = '';
+  while (s.length() > 0) {
+    rword += s.pop();
   }
 
-  return word === rword
+  return word === rword;
 }
