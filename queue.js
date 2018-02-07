@@ -1,4 +1,4 @@
-module.exports = class Queue {
+class Queue {
   constructor() {
     this.data = [];
   }

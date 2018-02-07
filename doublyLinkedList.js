@@ -2,10 +2,11 @@ class Node {
   constructor(element) {
     this.element = element;
     this.next = null;
+    this.prev = null;
   }
 }
 
-class LinkList {
+class DoublyLinkedList {
 
   constructor() {
     this.head = new Node('head');
@@ -34,15 +35,29 @@ class LinkList {
   // 插入一个新节点
   insert(newElement, item) {
     const newNode = new Node(newElement);
+    if (item.element === 'head') {
+      this.head.next = newNode;
+      newNode.prev = this.head;
+      return;
+    }
     const currentNode = this.find(item);
+    const currentNodeNextNode = currentNode.next;
+    if (currentNodeNextNode === null) {
+      newNode.prev = currentNode;
+      currentNode.next = newNode;
+      return;
+    }
     newNode.next = currentNode.next;
     currentNode.next = newNode;
+    currentNodeNextNode.prev = newNode;
+    newNode.prev = currentNode;
   }
 
   // 删除一个新节点
   remove(item) {
     let preNode = this.findPre(item);
     if (preNode.next.element === item) {
+      preNode.next.next.prev = preNode;
       preNode.next = preNode.next.next;
     }
   }
@@ -60,14 +75,15 @@ class LinkList {
 
 };
 
-// e.g
-// const LL = new LinkList();
-//
-// LL.insert('a1', 'head');
-// LL.insert('a2', 'a1');
-// LL.insert('a3', 'a2');
-// LL.insert('a4', 'a3');
-// LL.remove('a2');
+// e.g;
 
-// console.log(LL)
-// console.log(LL.show())
+const LL = new DoublyLinkedList();
+
+LL.insert('a1', 'head');
+LL.insert('a2', 'a1');
+LL.insert('a3', 'a2');
+LL.insert('a4', 'a3');
+LL.remove('a2');
+
+console.log(LL);
+console.log(LL.show());
