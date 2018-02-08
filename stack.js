@@ -36,6 +36,8 @@ class Stack {
 
 };
 
+// e.g
+
 // const stack = new Stack ()
 // stack.push(1)
 // stack.push(2)
@@ -45,7 +47,7 @@ class Stack {
 // console.log(stack.length())
 // console.log(stack.peek())
 
-// e.g
+
 
 // 回文
 

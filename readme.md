@@ -10,7 +10,9 @@
 
 [双向链表](./doublyLinkedList.js) (2018-02-07)
 
-[二叉树](binaryTree.js) (2018-02-07)
+[二叉树](./binaryTree.js) (2018-02-07)
+
+[图](./binaryTree.js) (2018-02-08)
 
 
 
@@ -22,7 +24,7 @@
 * [x] 双向链表
 * [ ] 循环链表
 * [x] 二叉树
-* [ ] 图
+* [x] 图
 * [ ] jest测试
 * [ ] 配套注释
 * [ ] 英文注释
@@ -38,3 +40,5 @@
 [二叉树](http://www.liuyiqi.cn/2017/02/18/tree/)
 
 [实现二叉树](https://microzz.com/2017/08/22/js-binarytree/)
+
+[es6阮一峰教程](http://es6.ruanyifeng.com/#docs/set-map)
