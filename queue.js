@@ -38,4 +38,23 @@ class Queue {
   empty() {
     return !!this.data.length;
   }
+
+  // 获取queue的长度
+  length() {
+    return this.data.length;
+  }
 };
+
+// e.g
+// const queue = new Queue();
+// queue.enqueue('a');
+// queue.enqueue('b');
+// queue.enqueue('c');
+// queue.enqueue('d');
+// queue.enqueue('e');
+//
+// console.log(queue);
+//
+// queue.dequeue();
+//
+// console.log(queue);

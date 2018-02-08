@@ -16,6 +16,14 @@ class Graph {
     this.adjList.get(w).add(v);
   }
 
+  // 删除一条边
+  removeEdge(v, w) {
+    this.adjList.get(v).delete(w);
+    this.adjList.get(w).delete(v);
+  }
+
+  // 展示所有的图节点和边的关系
+
   toString() {
     let str = '';
     const vertexs = this.vertexs;
@@ -29,13 +37,6 @@ class Graph {
     }
     return str;
   }
-
-  // 删除一条边
-  removeEdge(v, w) {
-    this.adjList.get(v).delete(w);
-    this.adjList.get(w).delete(v);
-  }
-
 }
 
 // e.g;

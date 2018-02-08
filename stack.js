@@ -29,7 +29,6 @@ class Stack {
   }
 
   // 获取栈的深度
-
   length() {
     return this.top;
   }
@@ -47,24 +46,3 @@ class Stack {
 // console.log(stack.length())
 // console.log(stack.peek())
 
-
-
-// 回文
-
-/**
- * 判断是否回文
- * @param word
- */
-function isPalindrome(word) {
-  const s = new Stack();
-  const length = word.length;
-  for (let i = 0; i < length; i++) {
-    s.push(word[i]);
-  }
-  let rword = '';
-  while (s.length() > 0) {
-    rword += s.pop();
-  }
-
-  return word === rword;
-}

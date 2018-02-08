@@ -30,7 +30,7 @@ class BinaryTree {
     }
   }
 
-  // 插入函数
+  // 插入一个节点
   insert(key) {
     const node = new Node(key);
     if (this.root === null) {
@@ -39,14 +39,15 @@ class BinaryTree {
       this.insertNode(this.root, node);
     }
   }
+
 };
 
 // e.g
 
-const data = [8, 3, 10, 1, 6, 14, 4, 7, 13];
-
-const binaryTree = new BinaryTree();
-
-data.forEach(item => binaryTree.insert(item));
-
-console.log(binaryTree);
+// const data = [18, 24, 11, 1, 66, 14, 44, 7, 225];
+//
+// const binaryTree = new BinaryTree();
+//
+// data.forEach(item => binaryTree.insert(item));
+//
+// console.log(binaryTree);

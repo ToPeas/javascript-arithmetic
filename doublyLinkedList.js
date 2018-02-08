@@ -63,7 +63,7 @@ class DoublyLinkedList {
   }
 
   // 展示出所有的链表
-  show() {
+  toString() {
     let currentNode = this.head;
     let arr = [];
     while (currentNode.next !== null) {
@@ -77,13 +77,13 @@ class DoublyLinkedList {
 
 // e.g;
 
-const LL = new DoublyLinkedList();
-
-LL.insert('a1', 'head');
-LL.insert('a2', 'a1');
-LL.insert('a3', 'a2');
-LL.insert('a4', 'a3');
-LL.remove('a2');
-
-console.log(LL);
-console.log(LL.show());
+// const LL = new DoublyLinkedList();
+//
+// LL.insert('a1', 'head');
+// LL.insert('a2', 'a1');
+// LL.insert('a3', 'a2');
+// LL.insert('a4', 'a3');
+// LL.remove('a2');
+//
+// console.log(LL);
+// console.log(LL.toString());

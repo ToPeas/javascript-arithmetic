@@ -20,6 +20,7 @@ class LinkList {
     return currentNode;
   }
 
+  // 查找输入节点前一个节点
   findPre(item) {
     if (item === 'head') {
       throw new Error('你要删除节点是头节点');
@@ -48,14 +49,16 @@ class LinkList {
   }
 
   // 展示出所有的链表
-  show() {
+  toString() {
     let currentNode = this.head;
-    let arr = [];
+    let str = '';
     while (currentNode.next !== null) {
       currentNode = currentNode.next;
-      arr.push(currentNode.element);
+      str += currentNode.element;
+      console.log(currentNode);
+      if (currentNode.next !== null) str += '  <-  ';
     }
-    return arr;
+    return str;
   }
 
 };
@@ -68,6 +71,6 @@ class LinkList {
 // LL.insert('a3', 'a2');
 // LL.insert('a4', 'a3');
 // LL.remove('a2');
-
-// console.log(LL)
-// console.log(LL.show())
+//
+// console.log(LL);
+// console.log(LL.toString());
