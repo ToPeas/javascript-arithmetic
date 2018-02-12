@@ -2,33 +2,48 @@ const Queue = require('./queue');
 
 class Graph {
   constructor() {
-    this.vertexs = [];
+    this.vertices = [];
     this.adjList = new Map();
   }
 
-  // 给图添加一个节点
-  addVertex(vertex) {
-    this.vertexs.push(vertex);
-    this.adjList.set(vertex, new Set());
+  /**
+   * 给图添加一个节点
+   * @param v 要添加的节点
+   */
+  addVertex(v) {
+    this.vertices.push(v);
+    this.adjList.set(v, new Set());
   }
 
-  // 给图添加一条边
+  /**
+   * 给图添加一条边
+   * @param v 边的其中一个节点
+   * @param w 边的其中另一个节点
+   */
   addEdge(v, w) {
     this.adjList.get(v).add(w);
     this.adjList.get(w).add(v);
   }
 
-  // 删除一条边
+  //
+  /**
+   * 删除一条边
+   * @param v 边的其中一个节点
+   * @param w 边的其中另一个节点
+   */
   removeEdge(v, w) {
     this.adjList.get(v).delete(w);
     this.adjList.get(w).delete(v);
   }
 
-// 广度优先算法
-
+  /**
+   * 广度优先遍历
+   * @param v 要遍历的开始节点
+   * @param cb 每一个节点要执行的回调函数
+   */
   bfs(v, cb) {
     const read = {};
-    Object.values(this.vertexs).forEach(key => {
+    Object.values(this.vertices).forEach(key => {
         read[key] = 'white';
       }
     );
@@ -37,27 +52,25 @@ class Graph {
     read[v] = 'black';
     while (!queue.isEmpty()) {
       let u = queue.dequeue();
-      //             console.log(u)
       let neighbors = this.adjList.get(u);
       for (let v of neighbors) {
         if (read[v] === 'white') {
           queue.enqueue(v);
           read[v] = 'black';
-
         }
-
       }
-      if (cb) {
-        cb(u);
-      }
+      if (cb) cb(u);
     }
   }
 
-  // 深度优先算法
-
+  /**
+   * 深度优先遍历
+   * @param v 要遍历的开始节点
+   * @param cb 每一个节点要执行的回调函数
+   */
   dfs(v, cb) {
     const read = {};
-    Object.values(this.vertexs).forEach(key => {
+    Object.values(this.vertices).forEach(key => {
         read[key] = 'white';
       }
     );
@@ -76,14 +89,16 @@ class Graph {
 
   }
 
-  // 展示所有的图节点和边的关系
-
+  /**
+   * 展示所有的图节点和边的关系(用领接表的样式)
+   * @returns {string}
+   */
   toString() {
     let str = '';
-    const vertexs = this.vertexs;
-    for (let i = 0; i < this.vertexs.length; i++) {
-      str += vertexs[i] + '  ->  ';
-      let neighbors = Array.from(this.adjList.get(vertexs[i]));
+    const vertices = this.vertices;
+    for (let i = 0; i < this.vertices.length; i++) {
+      str += vertices[i] + '  ->  ';
+      let neighbors = Array.from(this.adjList.get(vertices[i]));
       for (let j = 0; j < neighbors.length; j++) {
         str += neighbors[j] + ' ';
       }

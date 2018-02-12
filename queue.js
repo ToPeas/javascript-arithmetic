@@ -36,7 +36,7 @@ class Queue {
 
   // 判断队列是否为空
   isEmpty() {
-    return !!this.data.length;
+    return !this.data.length;
   }
 
   // 获取queue的长度
