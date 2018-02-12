@@ -10,7 +10,7 @@ class Queue {
 
   // 出队列
   dequeue() {
-    this.data.shift();
+    return this.data.shift();
   }
 
   // 获取队列的第一个
@@ -35,7 +35,7 @@ class Queue {
   }
 
   // 判断队列是否为空
-  empty() {
+  isEmpty() {
     return !!this.data.length;
   }
 
@@ -44,6 +44,8 @@ class Queue {
     return this.data.length;
   }
 };
+
+module.exports = Queue;
 
 // e.g
 // const queue = new Queue();
